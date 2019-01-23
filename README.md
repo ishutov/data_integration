@@ -34,7 +34,7 @@ Full [script](create_insert.txt) for db creation
 2. Start tomcat from the *bin folder* using the commands: 
 	* On Mac/Linux: using the terminal run `sh startup.sh` or  `sh catalina.sh start`.
 	* On Windows: click on the executable `startup.bat`.
-3. Connect to Sesame Workbench at http://localhost:8080/rdf4j-workbench/ .
+3. Connect to Sesame Workbench at  http://localhost:8080/openrdf-workbench/ .
 4. You will be automatically redirected to the repositories view .
 
 ### Setting up rdf4j workbench:
@@ -54,3 +54,4 @@ On the next page:
   
 ## SPARQL Queries examples:
 
+You can find queries [here](query.txt)
