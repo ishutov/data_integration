@@ -1,0 +1,70 @@
+create table cyber1.computer(computer_id int primary key, 
+manu varchar(255), 
+series varchar(255));  
+
+insert into cyber1.computer (computer_id, manu, series) values
+(1, 'intel', 'i5'),
+(2, 'amd', 'rx480'),
+(3, 'hercules', 'h22'),
+(4, 'lenin', '1917');
+
+create table cyber1.performance(computer_id int primary key, 
+manu varchar(255), 
+series varchar(255),
+performance int);   
+
+insert into cyber1.performance (computer_id, manu, series, performance) values
+(1, 'intel', 'i5', 10),
+(2, 'amd', 'rx480', 7),
+(3, 'hercules', 'h22', 5),
+(4, 'lenin', '1917', 4);
+
+create table cyber1.owners(computer_id int, team_id int); 
+
+insert into cyber1.owners (computer_id, team_id) values
+(1, 511),
+(2, 522),
+(3, 533),
+(4, 544);
+
+create table cyber1.teams(team_id int primary key, name varchar(255)); 
+
+insert into cyber1.teams (team_id, name) values
+(511, 'Intelio'),
+(522, 'Amdan'),
+(533, 'Hector'),
+(544, 'Vladimir');
+
+
+create table cyber2.processor(processor_id int primary key, 
+manu varchar(255), 
+country varchar(255), 
+price int);
+   
+insert into cyber2.processor (processor_id, manu, country, price) values 
+(11, 'intel', 'usa', 10000),
+(22, 'amd', 'usa', 7000),
+(33, 'hercules', 'gre', 5000),
+(44, 'stalin', 'rus', 4000);
+
+create table cyber2.avg_frequency(processor_id int , frequency int); 
+
+insert into cyber2.avg_frequency(processor_id, frequency) values
+(11, 4),
+(22, 3),
+(33, 2),
+(44, 1);
+
+create table cyber2.players (player_id int primary key, name VARCHAR(255), surname VARCHAR(255)); 
+
+insert into cyber2.players(player_id, name, surname) values
+(911, 'One', 'First'),
+(922, 'Two', 'Second'),
+(933, 'Three', 'Third');
+
+create table cyber2.games(game_id int primary key, processor_id int, player_id int, position int); 
+
+insert into cyber2.games(game_id, processor_id, player_id, position) values 
+(801, 11, 911, 1),
+(802, 22, 922, 2),
+(803, 33, 933, 3);
