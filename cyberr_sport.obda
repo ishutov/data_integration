@@ -1,0 +1,54 @@
+[PrefixDeclaration]
+:		http://www.semanticweb.org/i_shutov/ontologies/2019/0/untitled-ontology-5#
+owl:		http://www.w3.org/2002/07/owl#
+rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
+xml:		http://www.w3.org/XML/1998/namespace
+xsd:		http://www.w3.org/2001/XMLSchema#
+obda:		https://w3id.org/obda/vocabulary#
+rdfs:		http://www.w3.org/2000/01/rdf-schema#
+
+[SourceDeclaration]
+sourceUri	datasource1
+connectionUrl	jdbc:h2:~/cyberr
+username	sa
+password	
+driverClass	org.h2.Driver
+
+[MappingDeclaration] @collection [[
+mappingId	MAPID-fc30712ecef244a4a65a56a41b89d1c5
+target		:cyberr/cyber1/{computer_id} :hasTeam :cyberr/cyber1/{team_id} . 
+source		select * from cyber1.owners
+
+mappingId	MAPID-5bd6662b8cf042f28694caf4967ba9cc
+target		:cyberr/cyber2/{processor_id} a :Computer ; :Manu {manu} ; :Country {country} ; :Price {price} . 
+source		select * from cyber2.processor
+
+mappingId	MAPID-fd745b6545014258a94307193c14a9c0
+target		:cyberr/cyber1/{computer_id} a :Computer ; :Manu {manu} ; :Series {series} . 
+source		select * from cyber1.computer
+
+mappingId	MAPID-5e3a281296554dfea8ab417abcbd25ce
+target		:cyberr/cyber2/{processor_id} :Avg_Frequency {frequency} . 
+source		select * from cyber2.avg_frequency
+
+mappingId	MAPID-1c8d2139127348f28ce1dd8f73d71cd3
+target		:cyberr/cyber1/{computer_id} a :Computer ; :Manu {manu} ; :Series {series} ; :Performance {performance} . 
+source		select * from cyber1.performance
+
+mappingId	MAPID-4f5999ca48a04b1f81eab060370eac56
+target		:cyberr/cyber2/{player_id} a :Player ; :Player_Name {name} ; :Player_Surname {surname} . 
+source		select * from cyber2.players
+
+mappingId	MAPID-6bc98d39b0484dadbe61dab5857b1860
+target		:cyberr/cyber1/{team_id} a :Team ; :Team_Name {name} . 
+source		select * from cyber1.teams
+
+mappingId	MAPID-ad05e8ada41a4adebecb1794c63696ab
+target		:cyberr/cyber2/{processor_id} :hasPlayer :cyberr/cyber2/{player_id} . 
+source		select processor_id, player_id from cyber2.games
+
+mappingId	MAPID-206f7a51af8e42ee869651708bb8999b
+target		:cyberr/cyber2/{first} a :Success . 
+source		select player_id as first from cyber2.games where position = 1
+]]
+
