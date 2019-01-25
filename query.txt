@@ -34,3 +34,28 @@ SELECT ?name WHERE
 { 
 ?w :Pilot_Name ?name
 }
+
+// price and average frequency for all proccessors
+
+SELECT DISTINCT ?c ?p ?af WHERE
+{ 
+?c a :Computer .
+?c Price ?p .
+?c :Avg_Frequency ?af
+}
+
+// Players and their teams
+
+SELECT DISTINCT ?w ?name ?team WHERE
+{ 
+?w :Player_Name ?name.
+?w :Team_Name ?team
+}
+
+// player that is in team
+SELECT DISTINCT ?n ?s WHERE
+{ 
+?name :Team_Name ?n .
+?p :hasPlayer ?name .
+?p :Player_Name ?s .
+}
